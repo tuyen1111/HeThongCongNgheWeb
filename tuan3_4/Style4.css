@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+#example1{background-image:url(image/smiley.jpg);
+           padding:100px;
+           background-position:right;
+		   background-repeat:repeat-x;
+}
+#example2{background-image:url(image/smiley.jpg);
+           padding:100px;
+           background-position:left;
+		   background-repeat:no-repeat;
+}
