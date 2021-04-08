@@ -1,0 +1,101 @@
+.a {
+    border: 5px solid;
+    border-color: green yellow blue pink;
+    width: 300px;
+}
+
+.b {
+    border: 10px solid;
+    border-color: green yellow blue palevioletred;
+    border-style: solid dotted groove double;
+    width: 300px;
+}
+
+.c {
+    border: solid;
+    border-color: green yellow blue palevioletred;
+    border-width: 5px 10px 15px 20px;
+    width: 300px;
+}
+
+.d {
+    border: 5px solid;
+    border-color: green yellow blue palevioletred;
+    border-radius: 0px 30px 70px 20px;
+    width: 300px;
+}
+
+#adv {
+    border-width: 4px 30px 4px 30px;
+    border-style: groove ridge dashed groove;
+    border-color: green;
+    border-radius: 100px 100px 0px 0px;
+    -moz-border-radius: 100px 100px 0 0;
+    -webkit-border-radius: 100px 1000px 0 0;
+    width: 200px;
+    text-align: center;
+    height: 100px;
+}
+
+.f {
+    border: 5px solid yellow;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    width: 200px;
+    height: 120px;
+    text-align: center;
+}
+
+.g {
+    border: 5px;
+    border-width: 0px 12px 0px 12px;
+    border-style: double;
+    border-color: violet;
+    border-radius: 40px 40px 60px 60px;
+    -moz-border-radius: 40px 40px 60px 60px;
+    -webkit-border-radius: 40px 40px 60px 60px;
+    width: 300px;
+    height: 120px;
+    text-align: center;
+    padding-bottom: -15px;
+}
+
+.h {
+    border: 5px solid turquoise;
+    border-radius: 20px 100px 100px 20px;
+    -moz-border-radius: 20px 100px 100px 20px;
+    -webkit-border-radius: 20px 100px 100px 20px;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.i {
+    background: rgb(126, 236, 126);
+    border-width: 4px 30px 4px 30px;
+    border-style: solid;
+    border-color: rgb(85, 225, 235) rgb(65, 206, 182) orange #FF1493;
+    border-radius: 0 120px 0 120px;
+    -moz-border-radius: 0 120px 0 120px;
+    -webkit-border-radius: 0 120px 0 120px;
+    width: 300px;
+    text-align: center;
+}
+
+.button {
+    width: 200px;
+    padding: 8px;
+    background-color: #1E90FF;
+    color: white;
+    border-color: #0077e6;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -khtml-border-radius: 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    font-weight: 900;
+    font-size: 125%;
+}
