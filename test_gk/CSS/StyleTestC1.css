@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px;
+    color: white;
+}
+
+.container {
+    width: 1000px;
+    height: auto;
+    background-color: green;
+    margin-left: 240px;
+}
+
+.header {
+    width: 1000px;
+    height: 100px;
+    background-color: white;
+    color: green;
+}
+
+.header h1 p {
+    float: left;
+}
+
+.header img {
+    float: right;
+    margin-top: -60px;
+}
+
+.nav ul {
+    list-style-type: none;
+    background-color: green;
+}
+
+.nav li {
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+}
+
+.nav a:hover {
+    background-color: yellowgreen;
+    color: white;
+}
+
+.content {
+    width: 1000px;
+    height: 280px;
+}
+
+.section {
+    width: 600px;
+    float: left;
+    background-color: green;
+}
+
+.section h1 {
+    text-shadow: 8px 10px 8px white;
+    color: white;
+}
+
+.section p {
+    margin-left: 260px;
+    margin-top: -290px;
+    font-size: 14px;
+}
+
+.aside {
+    width: 400px;
+    float: right;
+    background-color: green;
+}
+
+.aside h1 {
+    color: yellow;
+}
+
+.aside p {
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.footer {
+    width: 1000px;
+    height: 60px;
+    margin-top: 120px;
+    background-color: lightsteelblue;
+    text-align: center;
+    padding-top: 45px;
+    font-size: 14px;
+}
