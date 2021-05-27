@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Exercise 18</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        function dangky() {
+            let messages = [];
+            let ho = document.getElementById("txtHo").value;
+            let ten = document.getElementById("txtTen").value;
+            let ps = document.getElementById("txtPassword").value;
+            let namsinh = document.getElementById("txtNamsinh").value;
+            let regexHoten = /^[A-Z][a-zA-Z]*$/;
+            let regexPS = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,}$/;
+            let regexNS = /^[0-9]+$/;
+            if (ho.trim() === '')
+                messages.push("Họ bắt buộc nhập");
+            if (ten.trim() === '')
+                messages.push("Tên bắt buộc nhập");
+            if (ps.trim() === '')
+                messages.push("Password bắt buộc nhập");
+            if (namsinh.trim() === '')
+                messages.push("Năm sinh bắt buộc nhập");
+            if (!regexHoten.test(ho) || !regexHoten.test(ten))
+                messages.push("Họ tên bắt đầu chữ cái hoa");
+            if (!regexPS.test(ps))
+                messages.push("Password gồm chữ cái, chữ số và từ 6 ký tự trở lên")
+            if (namsinh.trim() !== '' && !regexNS.test(namsinh))
+                messages.push("Năm sinh phải nhập số");
+            if (regexNS.test(namsinh) && parseInt(namsinh) >= 2002)
+                messages.push("Năm sinh phải < 2002");
+            if (messages.length > 0) {
+                document.getElementById("error").innerHTML = messages.join("; ");
+                return false;
+            }
+            document.getElementById("error").innerHTML = "";
+            alert("Đăng ký thành công!");
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row text-white p-2" style="background-color:rgb(57, 87, 149) ;">
+            <div class="col-6 align-self-end">
+                <h1>facebook</h1>
+            </div>
+            <div class="col-6">
+                <div class="row">
+                    <div class="col-4">
+                        <p>Email hoặc điện thoại</p>
+                    </div>
+                    <div class="col-4">Mật khẩu</div>
+                    <div class="col-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4 mr-1">
+                        <input type="text" id="txtEmailDienthoai">
+                    </div>
+                    <div class="col-4 mr-1">
+                        <input type="text" id="txtMatkhau">
+                    </div>
+                    <div class="col-3">
+                        <button type="button">Đăng nhập</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <input type="checkbox" checked="checked" id="txtDuytriDN">
+                        <label for="txtDuytriDN">Duy tri đăng nhập</label>
+                    </div>
+                    <div class="col-4"><a href="">Quên mật khẩu?</a></div>
+                    <div class="col-4"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="background-color: rgb(229, 230, 250);">
+            <div class="col-5 pl-5">
+                <img class="mt-5" src="../images/facebook.JPG" alt="facebook" width="300">
+                <h1 class="text-primary">Cảm ơn bạn <br /> đã ghé thăm!</h1>
+                <br />
+                <br />
+                <p class="font-weight-bold">Chúng tôi mong sớm gặp lại bạn.</p>
+            </div>
+            <div class="col-6">
+                <form action="">
+                    <h1 class="mt-5">Đăng ký</h1>
+                    <p class="mt-5 mb-5">Miễn phí và sẽ luôn như vậy.</p>
+                    <p><span id="error" class="font-italic textdanger"></span></p>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label>Họ:</label>
+                            <input required="required" class="formcontrol" type="text" id="txtHo" value="Smith" placeholder="Họ" />
+                        </div>
+                        <div class="col-6">
+                            <label>Tên</label>
+                            <input required="required" class="formcontrol" type="text" id="txtTen" value="Anna" placeholder="Tên" />
+                        </div>
+                    </div>
+                    <label>Email:
+                        <input class="form-control mt-2" required="required" type="email" id="txtEmail" value="johnsmith@gmail.com" placeholder="Email đăng nhập" />
+                    </label>
+                    <br>
+                    <label>Nhập lại Email:
+                        <input class="form-control mt-2" required="required" type="email" id="txtReEmail" value="johnsmith@gmail.com" placeholder="Email đăng nhập" />
+                    </label>
+                    <br>
+                    <label>Mật khẩu
+                        <input class="form-control mt-2" required="required" type="password" id="txtPassword" placeholder="Mật khẩu" value="Abc123" />
+                    </label>
+                    <br>
+                    <label>Năm Sinh
+                        <input class="form-control mt-2" required="required" type="text" id="txtNamsinh" placeholder="Năm sinh" value="2000" />
+                    </label>
+                    <br>
+                    <button type="button" class="btn btn-success mt-2" onclick="return dangky();">Đăng ký</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

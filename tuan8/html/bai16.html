@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAI16</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script>
+        function kiemtraUser() {
+            let User = document.getElementById("txtUser").value;
+
+            if (User.trim() === '') {
+                document.getElementById("tbUser").innerHTML = "Tên đăng nhập không được để trống!"
+                return false;
+            }
+
+            document.getElementById("tbUser").innerHTML = "*";
+            return true;
+        }
+        // 
+
+        function kiemtraPass() {
+            let pass = document.getElementById("txtPass").value;
+
+            if (pass.trim() === '') {
+                document.getElementById("tbPass").innerHTML = "Password không được để trống!"
+                return false;
+            }
+
+            document.getElementById("tbPass").innerHTML = "*";
+            return true;
+        }
+        // 
+
+        function kiemtraPass2() {
+            let pass2 = document.getElementById("txtPass2").value;
+
+            if (pass2.trim() !== document.getElementById("txtPass").value.trim()) {
+                document.getElementById("tbPass2").innerHTML = "Phải giống pass trên"
+                return false;
+            }
+
+            document.getElementById("tbPass2").innerHTML = "*";
+            return true;
+        }
+        // 
+
+        // 
+        function kiemtraHoten() {
+            let hoten = document.getElementById("txtHoten").value;
+            let regex = /^[A-Z]+[A-za-z]*(\s*[A-Z]+[A-za-z]*)$/;
+
+            if (hoten.trim() === '') {
+                document.getElementById("tbHoten").innerHTML = "Họ và tên không được để trống!"
+                return false;
+            }
+            if (!regex.test(hoten)) {
+                document.getElementById("tbHoten").innerHTML = "Họ và tên sai cú pháp!"
+                return false;
+            }
+            document.getElementById("tbHoten").innerHTML = "*";
+            return true;
+        }
+
+        function kiemtraDienthoai() {
+            let dienthoai = document.getElementById("txtDienthoai").value;
+            let regex = /^[0-9]{9,10}$/;
+
+            if (dienthoai.trim() !== '' && !regex.test(dienthoai)) {
+                document.getElementById("tbDienthoai").innerHTML = "Số điện thoại (9-10 số)"
+                return false;
+            }
+
+            document.getElementById("tbDienthoai").innerHTML = "";
+            return true;
+        }
+        // 
+        function kiemtraEmail() {
+            let email = document.getElementById("txtEmail").value;
+            let regex = /^[a-zA-Z_]\w*@[a-z]\.com$/;
+
+            if (email.trim() !== '' && !regex.test(email)) {
+                document.getElementById("tbEmail").innerHTML = "Số điện thoại (9-10 số)"
+                return false;
+            }
+
+            document.getElementById("tbEmail").innerHTML = "";
+            return true;
+        }
+        // 
+
+        let i = 0;
+
+        function dangky() {
+
+            if (!kiemtraHoten() || !kiemtraDienthoai() || !kiemtraPass() || !kiemtraPass2() || !kiemtraUser())
+                return false;
+
+            let hoten = document.getElementById("txtHoten").value;
+            let ngaysinh = document.getElementById("txtNgaysinh").value;
+            let gioitinh = "Nữ";
+            if (document.getElementById("rdoNam").checked)
+                gioitinh = "Nam";
+            let dienthoai = document.getElementById("txtDienthoai").value;
+            let diaChi = document.getElementById("txtDiaChi").value;
+            let email = document.getElementById("txtEmail").value;
+
+            let row = "<tr><td>" + (++i) + "</td><td>" + hoten + "</td><td>" + ngaysinh + "</td><td>" +
+                gioitinh + "</td><td>" + diaChi + "</td><td>" + dienthoai + "</td><td>" + email + "</td></tr>";
+
+            let tbl = document.getElementById("myTable");
+            // tbl.insertRow(0);
+            let newRow = tbl.insertRow(tbl.rows.length);
+            newRow.innerHTML = row;
+
+            return true;
+        }
+    </script>
+    <style>
+        * {
+            margin: 0px auto;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-10 border">
+                <form action="">
+
+                    <h1 class="text-center font-weight-bold">ĐĂNG KÝ TÀI KHOẢN</h1>
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label for="txtUser">Tên đăng nhập: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="txtUser" class="form-control" required="required" placeholder="Nhập vào tên đăng nhập" value="abcd123" onblur="return kiemtraUser();">
+                        </div>
+                        <div class="col-3">
+                            <span id="tbUser" class="text-danger font-italic">*</span>
+                        </div>
+                    </div>
+                    <!--  -->
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label for="txtPass">Mật khẩu: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="password" id="txtPass" class="form-control" required="required" placeholder="Nhập vào mật khẩu" onblur="return kiemtraPass();">
+                        </div>
+                        <div class="col-3">
+                            <span id="tbPass" class="text-danger font-italic">*</span>
+                        </div>
+                    </div>
+                    <!--  -->
+
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label for="txtPass2">Nhập lại mật khẩu: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="password" id="txtPass2" class="form-control" required="required" placeholder="Nhập vào xác nhận mật khẩu" onblur="return kiemtraPass2();">
+                        </div>
+                        <div class="col-3">
+                            <span id="tbPass2" class="text-danger font-italic">*</span>
+                        </div>
+                    </div>
+                    <!--  -->
+
+
+                    <h4 class="text-center mt-3">THÔNG TIN CÁ NHÂN</h4>
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label for="txtHoten">Họ và tên: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="txtHoten" class="form-control" required="required" placeholder="Nhập vào họ và tên" value="" onblur="return kiemtraHoten();">
+                        </div>
+                        <div class="col-3">
+                            <span id="tbHoten" class="text-danger font-italic">*</span>
+                        </div>
+                    </div>
+
+
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label for="txtNgaysinh">Ngày sinh: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="date" id="txtNgaysinh" class="form-control" value="">
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label>Giới tính: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="radio" id="rdoNam" name="gioitinh">
+                            <label for="rdoNam">Nam</label>
+                            <input type="radio" id="rdoNu" name="gioitinh" checked="checked">
+                            <label for="rdoNu">Nữ</label>
+                        </div>
+                        <div class="col-3"></div>
+                    </div>
+                    <!--  -->
+
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label for="txtDiaChi">Địa chỉ: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="txtDiaChi" class="form-control" placeholder="Nhập vào địa chỉ">
+                        </div>
+                        <div class="col-3">
+                            <span id="tbDiaChi" class="text-danger font-italic"></span>
+                        </div>
+                    </div>
+                    <!--  -->
+
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label for="txtDienthoai">Điện thoại: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="txtDienthoai" class="form-control" placeholder="Nhập vào số điện thoại (9-10 số)" value="0987654321" onblur="return kiemtraDienthoai();">
+                        </div>
+                        <div class="col-3">
+                            <span id="tbDienthoai" class="text-danger font-italic"></span>
+                        </div>
+                    </div>
+                    <!--  -->
+
+                    <div class="row mt-3">
+                        <div class="col-3 text-right">
+                            <label for="txtEmail">Email: </label>
+                        </div>
+                        <div class="col-6">
+                            <input type="text" id="txtEmail" class="form-control" placeholder="Nhập vào email cá nhân theo dang ten@tencongty.com" value="abcd@email.com" onblur="kiemtraEmail();">
+                        </div>
+                        <div class="col-3">
+                            <span id="tbEmail" class="text-danger font-italic"></span>
+                        </div>
+                    </div>
+                    <!--  -->
+
+
+                    <div class="row mt-3">
+                        <div class="col-12 text-center">
+                            <button class="btn btn-dark" id="btnDangky" type="button" onclick="return dangky();">Đăng ký</button>
+                            <button class="btn btn-dark" id="btnHuy" type="reset">Hủy</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
